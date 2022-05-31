@@ -10,7 +10,7 @@ import java.util.List;
 
 import br.edu.utfpr.dv.sireata.model.Pauta;
 
-public class PautaDAO {
+public class PautaDAO implements DAO {
 	
 	public Pauta buscarPorId(int id) throws SQLException{
 		Connection conn = null;
@@ -112,7 +112,7 @@ public class PautaDAO {
 				conn.close();
 		}
 	}
-	
+	@Override
 	public void excluir(int id) throws SQLException{
 		Connection conn = null;
 		Statement stmt = null;

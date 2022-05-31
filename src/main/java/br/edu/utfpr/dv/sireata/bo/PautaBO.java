@@ -5,10 +5,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import br.edu.utfpr.dv.sireata.dao.PautaDAO;
+import br.edu.utfpr.dv.sireata.dao.factory.Factory;
 import br.edu.utfpr.dv.sireata.model.Pauta;
 
 public class PautaBO {
-	
+	private Factory factory;
+
 	public Pauta buscarPorId(int id) throws Exception{
 		try{
 			PautaDAO dao = new PautaDAO();
@@ -63,9 +65,7 @@ public class PautaBO {
 	
 	public void excluir(int id) throws Exception{
 		try{
-			PautaDAO dao = new PautaDAO();
-			
-			dao.excluir(id);
+			factory.instance("Pauta").excluir(id);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
