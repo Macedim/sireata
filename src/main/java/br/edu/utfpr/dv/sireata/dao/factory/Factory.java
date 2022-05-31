@@ -25,6 +25,10 @@ public class Factory {
             return new ComentarioDAO();
         }
 
+        if(tipo.equals("Departamento")) {
+            return new DepartamentoDAO();
+        }
+
 
         return null;
     }

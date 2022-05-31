@@ -5,15 +5,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import br.edu.utfpr.dv.sireata.dao.DepartamentoDAO;
+import br.edu.utfpr.dv.sireata.dao.factory.Factory;
 import br.edu.utfpr.dv.sireata.model.Departamento;
 
 public class DepartamentoBO {
-	
+	private Factory factory;
 	public Departamento buscarPorId(int id) throws Exception{
 		try{
-			DepartamentoDAO dao = new DepartamentoDAO();
-			
-			return dao.buscarPorId(id);
+
+			return (Departamento) factory.instance("Departamento").buscarPorId(id);
+
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
