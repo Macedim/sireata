@@ -1,5 +1,6 @@
 package br.edu.utfpr.dv.sireata.dao.factory;
 import br.edu.utfpr.dv.sireata.dao.AnexoDAO;
+import br.edu.utfpr.dv.sireata.dao.AtaParticipanteDAO;
 import br.edu.utfpr.dv.sireata.dao.DAO;
 import br.edu.utfpr.dv.sireata.model.Anexo;
 
@@ -11,7 +12,7 @@ public class Factory {
         }
 
         if(tipo.equals("Ataparticipante")) {
-            return new AnexoDAO();
+            return new AtaParticipanteDAO();
         }
         return null;
     }
