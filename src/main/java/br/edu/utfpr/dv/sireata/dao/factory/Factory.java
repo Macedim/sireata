@@ -20,6 +20,12 @@ public class Factory {
         if(tipo.equals("Pauta")) {
             return new PautaDAO();
         }
+
+        if(tipo.equals("Comentario")) {
+            return new ComentarioDAO();
+        }
+
+
         return null;
     }
 }
