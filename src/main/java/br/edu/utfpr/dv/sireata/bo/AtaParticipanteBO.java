@@ -5,10 +5,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import br.edu.utfpr.dv.sireata.dao.AtaParticipanteDAO;
+import br.edu.utfpr.dv.sireata.dao.factory.Factory;
 import br.edu.utfpr.dv.sireata.model.AtaParticipante;
 
 public class AtaParticipanteBO {
-	
+	private Factory factory;
+
 	public AtaParticipante buscarPorId(int id) throws Exception{
 		try{
 			AtaParticipanteDAO dao = new AtaParticipanteDAO();
@@ -69,9 +71,8 @@ public class AtaParticipanteBO {
 	
 	public void excluir(int id) throws Exception{
 		try{
-			AtaParticipanteDAO dao = new AtaParticipanteDAO();
-			
-			dao.excluir(id);
+			factory.instance("Ataparticipante").excluir(id);
+
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			

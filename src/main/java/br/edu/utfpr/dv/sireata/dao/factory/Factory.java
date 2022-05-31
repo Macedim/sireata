@@ -9,6 +9,10 @@ public class Factory {
         if(tipo.equals("Anexo")) {
             return new AnexoDAO();
         }
+
+        if(tipo.equals("Ataparticipante")) {
+            return new AnexoDAO();
+        }
         return null;
     }
 }
